@@ -1,135 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thrifting Guide</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      line-height: 1.6;
-      background: #f5f5f5;
-      color: #333;
-    }
-    header {
-      background: #2c7a7b;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    nav {
-      background: #225e5f;
-      padding: 0.5rem;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      margin-top: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #2c7a7b;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      background: #2c7a7b;
-      color: white;
-    }
-    .tip {
-      background: #e6fffa;
-      border-left: 5px solid #2c7a7b;
-      padding: 1rem;
-      margin: 1rem 0;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thrifting Hub</title>
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #ffecd2, #fcb69f);
+}
+header {
+  text-align: center;
+  padding: 2rem;
+  background: #ff6f61;
+  color: white;
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  background: #ffb347;
+}
+.tabs button {
+  padding: 1rem;
+  border: none;
+  background: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.tabs button:hover {
+  background: #ffd27f;
+}
+.tab-content {
+  display: none;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  background: white;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+.active {
+  display: block;
+}
+img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+.card {
+  background: #e0f7fa;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 6px solid #00acc1;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #ff6f61;
+  color: white;
+  margin-top: 2rem;
+}
+</style>
 </head>
 <body>
 
 <header>
-  <h1>Thrifting 101</h1>
-  <p>Your guide to finding hidden gems and saving money</p>
+<h1>Thrifting Hub</h1>
+<p>Explore, Save, and Discover Unique Finds</p>
 </header>
 
-<nav>
-  <a href="#what">What is Thrifting?</a>
-  <a href="#why">Why Thrift?</a>
-  <a href="#tips">Tips</a>
-  <a href="#finds">Best Finds</a>
-</nav>
+<div class="tabs">
+<button onclick="showTab('home')">Home</button>
+<button onclick="showTab('tips')">Tips</button>
+<button onclick="showTab('gallery')">Gallery</button>
+<button onclick="showTab('locator')">Store Locator</button>
+</div>
 
-<section id="what">
-  <h2>What is Thrifting?</h2>
-  <p>
-    Thrifting is the act of shopping for secondhand items—usually clothing, furniture,
-    or accessories—at thrift stores, vintage shops, or resale markets. It’s a great
-    way to discover unique items at a fraction of the original price.
-  </p>
-</section>
+<div id="home" class="tab-content active">
+<h2>Welcome to Thrifting</h2>
+<p>Thrifting is a fun and sustainable way to shop for unique items at affordable prices.</p>
+<img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47" alt="thrift store">
+</div>
 
-<section id="why">
-  <h2>Why Thrift?</h2>
-  <ul>
-    <li>Save money on high-quality items</li>
-    <li>Reduce environmental waste</li>
-    <li>Find unique, one-of-a-kind pieces</li>
-    <li>Support charitable organizations</li>
-  </ul>
-</section>
+<div id="tips" class="tab-content">
+<h2>Top Thrifting Tips</h2>
+<div class="card">Visit often – inventory changes daily!</div>
+<div class="card">Check every section – hidden gems are everywhere.</div>
+<div class="card">Inspect items carefully before buying.</div>
+<div class="card">Go in with an open mind.</div>
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f" alt="clothes rack">
+</div>
 
-<section id="tips">
-  <h2>Top Thrifting Tips</h2>
+<div id="gallery" class="tab-content">
+<h2>Thrift Finds Inspiration</h2>
+<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c" alt="vintage clothes">
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="outfit">
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b" alt="fashion">
+</div>
 
-  <div class="tip">
-    <strong>Go often:</strong> Inventory changes daily, so frequent visits increase your chances of finding great items.
-  </div>
+<div id="locator" class="tab-content">
+<h2>Thrift Stores Near Texas A&M</h2>
 
-  <div class="tip">
-    <strong>Check all sections:</strong> Don’t limit yourself—sometimes the best finds are in unexpected places.
-  </div>
+<div class="card">
+<strong>Goodwill College Station</strong><br>
+Address: 2551 Texas Ave S, College Station, TX
+</div>
 
-  <div class="tip">
-    <strong>Inspect items:</strong> Always check for damage, stains, or missing parts.
-  </div>
+<div class="card">
+<strong>Plato's Closet College Station</strong><br>
+Address: 1501 University Dr E, College Station, TX
+</div>
 
-  <div class="tip">
-    <strong>Be patient:</strong> Thrifting takes time, but the rewards are worth it.
-  </div>
+<div class="card">
+<strong>Salvation Army Thrift Store</strong><br>
+Address: 2506 Cavitt Ave, Bryan, TX
+</div>
 
-</section>
+<iframe
+  width="100%"
+  height="300"
+  style="border:0"
+  loading="lazy"
+  allowfullscreen
+  src="https://www.google.com/maps?q=Texas%20A%26M%20thrift%20stores&output=embed">
+</iframe>
 
-<section id="finds">
-  <h2>Best Things to Thrift</h2>
-  <ul>
-    <li>Vintage clothing</li>
-    <li>Denim and jackets</li>
-    <li>Home decor and furniture</li>
-    <li>Books and records</li>
-    <li>Accessories like bags and jewelry</li>
-  </ul>
-</section>
+</div>
 
 <footer>
-  <p>&copy; 2026 Thrifting Guide | Happy Hunting!</p>
+<p>Happy Thrifting!</p>
 </footer>
+
+<script>
+function showTab(tabId) {
+  const tabs = document.querySelectorAll('.tab-content');
+  tabs.forEach(tab => tab.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+}
+</script>
 
 </body>
 </html>
