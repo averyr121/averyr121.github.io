@@ -20,6 +20,7 @@ header {
   display: flex;
   justify-content: center;
   background: #ffb347;
+  flex-wrap: wrap;
 }
 .tabs button {
   padding: 1rem;
@@ -40,9 +41,7 @@ header {
   border-radius: 12px;
   margin-top: 1rem;
 }
-.active {
-  display: block;
-}
+.active { display: block; }
 img {
   width: 100%;
   border-radius: 10px;
@@ -53,6 +52,24 @@ img {
   padding: 1rem;
   margin: 1rem 0;
   border-left: 6px solid #00acc1;
+}
+.builder {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.builder img {
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+.builder img.selected {
+  border: 3px solid #ff6f61;
+}
+.outfit-preview {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #fff3e0;
+  border-radius: 10px;
 }
 footer {
   text-align: center;
@@ -74,13 +91,14 @@ footer {
 <button onclick="showTab('home')">Home</button>
 <button onclick="showTab('tips')">Tips</button>
 <button onclick="showTab('gallery')">Gallery</button>
+<button onclick="showTab('builder')">Outfit Builder</button>
 <button onclick="showTab('locator')">Store Locator</button>
 </div>
 
 <div id="home" class="tab-content active">
 <h2>Welcome to Thrifting</h2>
 <p>Thrifting is a fun and sustainable way to shop for unique items at affordable prices.</p>
-<img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47" alt="thrift store">
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1000" alt="thrift store clothing">
 </div>
 
 <div id="tips" class="tab-content">
@@ -89,43 +107,38 @@ footer {
 <div class="card">Check every section – hidden gems are everywhere.</div>
 <div class="card">Inspect items carefully before buying.</div>
 <div class="card">Go in with an open mind.</div>
-<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f" alt="clothes rack">
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1000" alt="clothes rack">
 </div>
 
 <div id="gallery" class="tab-content">
 <h2>Thrift Finds Inspiration</h2>
-<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c" alt="vintage clothes">
-<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="outfit">
-<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b" alt="fashion">
+<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1000">
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1000">
+</div>
+
+<div id="builder" class="tab-content">
+<h2>Outfit Builder</h2>
+<p>Click items to build your outfit:</p>
+<div class="builder">
+<img src="https://images.unsplash.com/photo-1520975922284-9e0f6c0e2d3c?w=400" onclick="selectItem(this)">
+<img src="https://images.unsplash.com/photo-1520975661595-6453be3f7070?w=400" onclick="selectItem(this)">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400" onclick="selectItem(this)">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=400" onclick="selectItem(this)">
+</div>
+
+<div class="outfit-preview">
+<h3>Your Outfit:</h3>
+<div id="outfit"></div>
+</div>
 </div>
 
 <div id="locator" class="tab-content">
 <h2>Thrift Stores Near Texas A&M</h2>
-
-<div class="card">
-<strong>Goodwill College Station</strong><br>
-Address: 2551 Texas Ave S, College Station, TX
-</div>
-
-<div class="card">
-<strong>Plato's Closet College Station</strong><br>
-Address: 1501 University Dr E, College Station, TX
-</div>
-
-<div class="card">
-<strong>Salvation Army Thrift Store</strong><br>
-Address: 2506 Cavitt Ave, Bryan, TX
-</div>
-
-<iframe
-  width="100%"
-  height="300"
-  style="border:0"
-  loading="lazy"
-  allowfullscreen
-  src="https://www.google.com/maps?q=Texas%20A%26M%20thrift%20stores&output=embed">
-</iframe>
-
+<div class="card"><strong>Goodwill College Station</strong><br>2551 Texas Ave S</div>
+<div class="card"><strong>Plato's Closet</strong><br>1501 University Dr E</div>
+<div class="card"><strong>Salvation Army</strong><br>2506 Cavitt Ave</div>
+<iframe width="100%" height="300" style="border:0" loading="lazy" allowfullscreen
+src="https://www.google.com/maps?q=Texas%20A%26M%20thrift%20stores&output=embed"></iframe>
 </div>
 
 <footer>
@@ -134,9 +147,18 @@ Address: 2506 Cavitt Ave, Bryan, TX
 
 <script>
 function showTab(tabId) {
-  const tabs = document.querySelectorAll('.tab-content');
-  tabs.forEach(tab => tab.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
   document.getElementById(tabId).classList.add('active');
+}
+
+function selectItem(img) {
+  img.classList.toggle('selected');
+  const outfit = document.getElementById('outfit');
+  outfit.innerHTML = '';
+  document.querySelectorAll('.builder img.selected').forEach(item => {
+    const clone = item.cloneNode();
+    outfit.appendChild(clone);
+  });
 }
 </script>
 
